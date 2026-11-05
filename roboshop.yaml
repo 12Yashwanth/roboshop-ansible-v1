@@ -6,9 +6,20 @@
     domain_name: ragy.online
     action: create
   tasks:
-  - name: Debug msg 
-    debug:
-      msg: "Sample debug message"
+  # - name: Debug msg 
+  #   debug:
+  #     msg: "Sample debug message"
+
+  - name: Creating SG
+    amazon.aws.ec2_security_group:
+      name: "roboshop-{{ item }}"
+      description: "SG for {{ item }}"
+      region: us-east-1
+      rules:
+        - proto: tcp
+          ports:
+            - 22
+          cidr_ip: 223.185.51.86/32
   
   # - name: Creating ec2 instance
   #   amazon.aws.ec2_instance:
