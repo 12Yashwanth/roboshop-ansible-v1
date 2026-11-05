@@ -6,8 +6,9 @@
     domain_name: ragy.online
     action: create
   tasks:
-  - debug:
-    msg: "Sample debug message"
+  - name: Debug msg 
+    debug:
+      msg: "Sample debug message"
   
   # - name: Creating ec2 instance
   #   amazon.aws.ec2_instance:
