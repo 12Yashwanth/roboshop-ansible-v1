@@ -6,26 +6,29 @@
     domain_name: ragy.online
     action: create
   tasks:
-  - name: Creating ec2 instance
-    amazon.aws.ec2_instance:
-      name: "roboshop-{{ item }}"
-      instance_type: t3.micro
-      image_id: ami-0055977a6e828a4f4
-      region: us-east-1
-      security_groups:
-      - roboshop-common
-      - roboshop-{{ item }}
-    loop: "{{ instances }}"
-    when: action == create
+    - debug:
+      msg: "Sample debug message"
+  
+  # - name: Creating ec2 instance
+  #   amazon.aws.ec2_instance:
+  #     name: "roboshop-{{ item }}"
+  #     instance_type: t3.micro
+  #     image_id: ami-0055977a6e828a4f4
+  #     region: us-east-1
+  #     security_groups:
+  #     - roboshop-common
+  #     - roboshop-{{ item }}
+  #   loop: "{{ instances }}"
+  #   when: action == create
 
-  - name: Creating SG
-    amazon.aws.ec2_security_group:
-      name: "roboshop-{{ item }}"
-      description: "SG for {{ item }}"
-      region: us-east-1
-      rules:
-        - proto: tcp
-          ports:
-            - 22
-          cidr_ip: 223.185.51.86/32
+  # - name: Creating SG
+  #   amazon.aws.ec2_security_group:
+  #     name: "roboshop-{{ item }}"
+  #     description: "SG for {{ item }}"
+  #     region: us-east-1
+  #     rules:
+  #       - proto: tcp
+  #         ports:
+  #           - 22
+  #         cidr_ip: 223.185.51.86/32
 
