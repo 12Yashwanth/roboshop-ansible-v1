@@ -3,8 +3,8 @@
   connection: local
   vars:
     instances: ["mongodb", "redis", "mysql", "rabbitmq", "catalogue", "user", "cart", "shipping", "payment", "frontend"]
-    domain_name: "ragy.online"
-    action: "create"
+    domain_name: ragy.online
+    action: create
   tasks:
   - name: Creating ec2 instance
     amazon.aws.ec2_instance:
@@ -16,7 +16,7 @@
       - roboshop-common
       - roboshop-{{ item }}
     loop: "{{ instances }}"
-    when: action == "create"
+    when: action == create
 
   - name: Creating SG
     amazon.aws.ec2_security_group:
