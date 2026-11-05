@@ -1,5 +1,5 @@
 echo "Starting setup script..."
-dnf install python3 python3-pip -y >> output.log
+sudo dnf install python3 python3-pip -y >> output.log
 if [ $? -ne 0 ]; then
   echo "Python3 installation failed. Check output.log for details."
   exit 1
