@@ -21,7 +21,7 @@
             - 22
           cidr_ip: 223.185.51.86/32
     loop: "{{ instances }}"
-    when: action == create
+    when: action == "create"
   
   # - name: Creating ec2 instance
   #   amazon.aws.ec2_instance:
@@ -33,16 +33,6 @@
   #     - roboshop-common
   #     - roboshop-{{ item }}
   #   loop: "{{ instances }}"
-  #   when: action == create
+  #   when: action == "create"
 
-  # - name: Creating SG
-  #   amazon.aws.ec2_security_group:
-  #     name: "roboshop-{{ item }}"
-  #     description: "SG for {{ item }}"
-  #     region: us-east-1
-  #     rules:
-  #       - proto: tcp
-  #         ports:
-  #           - 22
-  #         cidr_ip: 223.185.51.86/32
 
